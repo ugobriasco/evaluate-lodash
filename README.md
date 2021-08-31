@@ -1,4 +1,4 @@
-# Evaluate Lodash library
+# Evaluate Lodash
 
 This project aims to benchmark lodash performance, compared to native implementation.
 

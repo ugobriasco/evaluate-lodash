@@ -4,38 +4,18 @@ This project aims to benchmark lodash performance, compared to native implementa
 
 ## Getting started
 
-### Installation
-
 ```
-// Installing node dependancies
 npm i
-mkdir ./data/plots
-mkdir ./data/raw
-
-// Install python dependancies (to plot results)
-python -m venv ./venv
-source ./venv/bin/activate
-pip install --upgrade setuptools
-pip install --upgrade pip
-pip install matplotlib
-pip install pandas
-
-```
-
-### Usage
-
-Run the benchamark
-
-```
 npm start
 ```
 
-Plot results
+The test results (including plots) will be available under `./data`.
+The Loadash version under test is _4.17.21_; feel free to update `package.json` to bechmark a different one.
 
-```
-. ./venv/bin/activate
-python3 ./bin/plot.py
-```
+Following a list of methods under test:
+
+- \_.find
+- \_.reduce
 
 ## References
 

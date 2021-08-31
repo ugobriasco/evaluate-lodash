@@ -2,6 +2,8 @@ import json
 import pandas as pd
 import matplotlib.pyplot as plt
 
+print("Plotting results ...")
+
 # read file
 with open('./data/raw/evaluate-find.json', 'r') as myfile:
     raw_data=myfile.read()
@@ -43,3 +45,4 @@ fig = data.plot(\
 plt.tight_layout()
 fig.savefig('./data/plots/evaluate-reduce.png')
 
+print('Done! Plots available under ./data/plots')

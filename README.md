@@ -10,12 +10,26 @@ npm start
 ```
 
 The test results (including plots) will be available under `./data`.
-The Loadash version under test is _4.17.21_; feel free to update `package.json` to bechmark a different one.
 
 Following a list of methods under test:
 
 - \_.find
 - \_.reduce
+
+## Configuration
+
+#### Lodash version
+
+The default Loadash version under test is _4.17.21_. In order to select a different one, upodate `./package.json`, then:
+
+```
+    rm -rf node_modules
+    npm i
+```
+
+#### Test intensity
+
+Change `./lib/settings.js` to modify the test intensity (e.g. increasing the dataset or increase repetitions)
 
 ## References
 

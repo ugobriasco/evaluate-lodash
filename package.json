@@ -4,8 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./lib && . ./venv/bin/activate && python3 ./bin/plot.py",
-    "prepare": "sh ./bin/prepare.sh"
+    "start": "node ./lib && . ./venv/bin/activate && npm run plot",
+    "prepare": "sh ./bin/prepare.sh",
+    "plot": "python3 ./bin/plot.py"
   },
   "author": "",
   "license": "ISC",

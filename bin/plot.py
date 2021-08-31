@@ -1,48 +1,35 @@
-import json
 import pandas as pd
-import matplotlib.pyplot as plt
+from matplotlib import pyplot as plt    
 
-print("Plotting results ...")
 
-# read file
-with open('./data/raw/evaluate-find.json', 'r') as myfile:
-    raw_data=myfile.read()
+obj_find = pd.read_json('./data/raw/evaluate-find.json');
+obj_reduce = pd.read_json('./data/raw/evaluate-reduce.json');
 
-# parse file
-obj = json.loads(raw_data)
+# Load data
+df = pd.DataFrame({
+    'find_native': obj_find['native'],
+    'reduce_native': obj_reduce['native'],
+    'find_lodash': obj_reduce['lodash'],
+    'reduce_lodash': obj_reduce['lodash']
+})
 
-data = pd.DataFrame({'lodash': obj['lodash'], 'native': obj['native']})
-#data.hist(figsize=(10,10),bins=10)
+# Plot
+params = {
+    'axes.titlesize':'32',
+    'axes.labelsize':'32',
+    'xtick.labelsize':'24',
+    'ytick.labelsize':'24',
+          }
+plt.rcParams.update(params)
 
-fig = data.plot(\
-    kind='hist', 
-    subplots=True, 
-    figsize=(10, 10),
+fig = df.hist(\
     bins=20,
-    title = "FIND: Lodash vs Native [ms]"
-    )[0].get_figure()
-plt.tight_layout()
-fig.savefig('./data/plots/evaluate-find.png')
+    layout=(2, 2), 
+    figsize=(20, 20),
+    ).ravel()[0].get_figure()
 
+fig.suptitle('Lodash Vs Native performance: events distribution', fontsize=30)
+plt.xlabel('Execution time [ms]', fontsize=30)
+plt.ylabel('Events', fontsize=30)
 
-# read file
-with open('./data/raw/evaluate-reduce.json', 'r') as myfile:
-    raw_data=myfile.read()
-
-# parse file
-obj = json.loads(raw_data)
-
-data = pd.DataFrame({'lodash': obj['lodash'], 'native': obj['native']})
-#data.hist(figsize=(10,10),bins=10)
-
-fig = data.plot(\
-    kind='hist', 
-    subplots=True, 
-    figsize=(10, 10),
-    bins=20,
-    title = "REDUCE: Lodash vs Native [ms]"
-    )[0].get_figure()
-plt.tight_layout()
-fig.savefig('./data/plots/evaluate-reduce.png')
-
-print('Done! Plots available under ./data/plots')
+fig.savefig('./data/plots/results.png');

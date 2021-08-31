@@ -1,8 +1,6 @@
 # Evaluate Lodash library
 
-Is Lodash useful? This project aims to benchmark lodash performance compare to the native implementation.
-
-Inspired by https://codeburst.io/why-you-shouldnt-use-lodash-anymore-and-use-pure-javascript-instead-c397df51a66
+This project aims to benchmark lodash performance, compared to native implementation.
 
 ## Getting started
 
@@ -38,6 +36,11 @@ Plot results
 . ./venv/bin/activate
 python3 ./bin/plot.py
 ```
+
+## References
+
+- [Lodash](https://www.npmjs.com/package/lodash?activeTab=versions) versions published in npm
+- An old article [claiming lodash performance issues](https://codeburst.io/why-you-shouldnt-use-lodash-anymore-and-use-pure-javascript-instead-c397df51a66)
 
 ## License
 

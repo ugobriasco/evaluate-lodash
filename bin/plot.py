@@ -2,8 +2,9 @@ import pandas as pd
 from matplotlib import pyplot as plt    
 
 
-obj_find = pd.read_json('./data/raw/evaluate-find.json');
-obj_reduce = pd.read_json('./data/raw/evaluate-reduce.json');
+obj_find = pd.read_json('./.results/raw/evaluate-find.json');
+obj_reduce = pd.read_json('./.results/raw/evaluate-reduce.json');
+pool_size = len(obj_find['native'])
 
 # Load data
 df = pd.DataFrame({
@@ -28,8 +29,9 @@ fig = df.hist(\
     figsize=(20, 20),
     ).ravel()[0].get_figure()
 
-fig.suptitle('Lodash Vs Native performance: events distribution', fontsize=30)
+plot_title = "Lodash Vs Native performance: events distribution, n=%d"%pool_size
+fig.suptitle(plot_title, fontsize=30)
 plt.xlabel('Execution time [ms]', fontsize=30)
 plt.ylabel('Events', fontsize=30)
 
-fig.savefig('./data/plots/results.png');
+fig.savefig('./.results/plots/results.png');

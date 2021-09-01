@@ -9,7 +9,7 @@ npm i
 npm start
 ```
 
-The test results (including plots) will be available under `./data`.
+The test results (including plots) will be available under `./.results`.
 
 Following a list of methods under test:
 
@@ -29,7 +29,11 @@ The default Loadash version under test is _4.17.21_. In order to select a differ
 
 #### Test intensity
 
-Change `./lib/settings.js` to modify the test intensity (e.g. increasing the dataset or increase repetitions)
+Change `./lib/settings.js` to modify the test intensity as following:
+
+- Sizing the dataset, which will be then raversed by each target method.
+- Increasing the repetitions during a single batch
+- Cumulate results form subsequent batches
 
 ## References
 

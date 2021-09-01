@@ -10,7 +10,7 @@ pool_size = len(obj_find['native'])
 df = pd.DataFrame({
     'find_native': obj_find['native'],
     'reduce_native': obj_reduce['native'],
-    'find_lodash': obj_reduce['lodash'],
+    'find_lodash': obj_find['lodash'],
     'reduce_lodash': obj_reduce['lodash']
 })
 
